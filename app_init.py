@@ -2,6 +2,7 @@ from flask import Flask
 from env.constants import SQL_ALCHEMY_DATABASE_URL
 from routes.index import root
 from routes.books import books
+from routes.members import members
 from packages import db , migrate
 def app_init():
 
@@ -12,5 +13,6 @@ def app_init():
     migrate.init_app(app,db)
     app.register_blueprint(root)
     app.register_blueprint(books,url_prefix='/book')
+    app.register_blueprint(members,url_prefix='/member')
     return app 
     
