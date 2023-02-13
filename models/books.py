@@ -10,11 +10,12 @@ class Books(db.Model):
     name=db.Column(db.String(50),nullable=False)
     author=db.Column(db.String(50),nullable=False)
     available=db.Column(db.Integer(),default=0)
-    def __init__(self ,name ,author,available) :
+    votes=db.Column(db.Integer(),nullable=False)
+    def __init__(self ,name ,author,available,votes) :
         self.name=name
         self.author=author
         self.available=available
-        
+        self.votes=votes
     def save(self):
         db.session.add(self)
         db.session.commit()

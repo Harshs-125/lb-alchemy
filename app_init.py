@@ -3,6 +3,7 @@ from env.constants import SQL_ALCHEMY_DATABASE_URL
 from routes.index import root
 from routes.books import books
 from routes.members import members
+from routes.transacions import transaction
 from packages import db , migrate
 def app_init():
 
@@ -14,5 +15,6 @@ def app_init():
     app.register_blueprint(root)
     app.register_blueprint(books,url_prefix='/book')
     app.register_blueprint(members,url_prefix='/member')
+    app.register_blueprint(transaction,url_prefix='/transaction')
     return app 
     

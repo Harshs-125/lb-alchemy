@@ -10,7 +10,7 @@ class Members(db.Model):
     name=db.Column(db.String(50),nullable=False)
     email=db.Column(db.String(50),nullable=False,unique=True)
     hasbooks=db.Column(db.Integer,nullable=False,default=0)
-    amount=db.Column(db.Integer,nullable=False,default=0)
+    debt=db.Column(db.Integer,nullable=False,default=0)
     def __init__(self ,name,email) :
         self.name=name
         self.email=email
@@ -20,7 +20,7 @@ class Members(db.Model):
         db.session.commit()
     
     def __repr__(self)  :
-        return f"Book({self.id},{self.name},{self.email},{self.hasbooks},{self.amount})"
+        return f"Book({self.id},{self.name},{self.email},{self.hasbooks},{self.debt})"
 
 
 
