@@ -22,9 +22,10 @@ class Books(db.Model):
         db.session.commit()
     
     def find_max_votes():
-        books=Books.query.all()
-        books=sorted(books,'votes'=lambda x:x['votes'])
-        print(books)
+        # books=Books.query.all()
+        # books=sorted(books,'votes'=lambda x:x['votes'])
+        # print(books)
+        pass
 
     def __repr__(self)  :
         return f"Book({self.id},{self.name},{self.author},{self.available})"
