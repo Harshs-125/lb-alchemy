@@ -23,7 +23,7 @@ class Transactions(db.Model):
         db.session.commit()
     
     def __repr__(self)  :
-        return f"Transaction({self.id},{self.book_id},{self.member_id},{self.issue_date},{self.return_date},{self.amount})"
+        return f"Transaction( id={self.id}, book_id={self.book_id}, member_id={self.member_id}, issue_data={self.issue_date}, return_data={self.return_date}, amount_paid={self.amount_paid}, amount_to_paid={self.amount_to_paid}, status={self.status})"
 
 
 

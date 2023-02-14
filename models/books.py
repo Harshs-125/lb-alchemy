@@ -1,5 +1,6 @@
 
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import func
 
 
 from packages import db
@@ -20,6 +21,11 @@ class Books(db.Model):
         db.session.add(self)
         db.session.commit()
     
+    def find_max_votes():
+        books=Books.query.all()
+        books=sorted(books,'votes'=lambda x:x['votes'])
+        print(books)
+
     def __repr__(self)  :
         return f"Book({self.id},{self.name},{self.author},{self.available})"
 

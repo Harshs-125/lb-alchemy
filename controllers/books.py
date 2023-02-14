@@ -88,6 +88,11 @@ def returnBookData(data):
         return "successfully record the returned data "
     return "no such transaction found"
 
+def mostPopular():
+    book=Books.query.max(votes).first()
+    print(book)
+    return ""
+
 
       
 
