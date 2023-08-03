@@ -11,7 +11,7 @@ class Transactions(db.Model):
     member_id=db.Column(db.Integer,nullable=False)
     issue_date=db.Column(db.Date,nullable=False,default=datetime.now().date())
     return_date=db.Column(db.Date,default=None)
-    status=db.Column(db.String,default="issued")
+    status=db.Column(db.String(50),default="issued")
     amount_to_paid=db.Column(db.Integer,default=0)
     amount_paid=db.Column(db.Integer,default=0)
     def __init__(self ,book_id,member_id) :

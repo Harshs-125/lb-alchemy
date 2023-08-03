@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,jsonify
 from datetime import datetime,date
 import requests
 from env.constants import BOOK_API_URL,X_RapidAPI_Host,X_RapidAPI_Key
@@ -7,16 +7,24 @@ from models.members import Members
 from models.transactions import Transactions
 from models.members import Members
 from packages import db
+
+def getbooks():
+    all_books = Books.query.all()
+    books_list = []
+    for book in all_books:
+        book_data = {
+            'id': book.id,
+            'name': book.name,
+            'author': book.author
+        }
+        books_list.append(book_data)
+
+    return books_list
+
 def addbooks(genre):
-    url = f"{BOOK_API_URL}{genre}/2020"
-    headers = {
-	    "X-RapidAPI-Key": "b403235f84msh4b8a7702e4c9501p1b3b58jsn3ab0b7b79b85",
-	    "X-RapidAPI-Host": "hapi-books.p.rapidapi.com"
-    }
-    response = requests.get(url,headers=headers)
-    arr = response.json()
-    for book in arr:
-        b=Books(name=book["name"],author=book["author"],available=20,votes=book['votes'])
+    arr=[]
+    for i in range(0,10):
+        b=Books(name="books",author="harsh",available=20,votes=50)
         db.session.add(b)
     db.session.commit()
     return arr

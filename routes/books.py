@@ -1,12 +1,18 @@
 from flask import Blueprint,request,jsonify
-from controllers.books import addbooks,borrowBook,editBookData,returnBookData,mostPopular
+from controllers.books import addbooks,borrowBook,editBookData,returnBookData,mostPopular,getbooks
 books=Blueprint('books',__name__)
-@books.route('/add',methods=['POST'])
-def add():
-    request_data=request.json
-    response=addbooks(request_data['genre'])
+
+@books.route('/get',methods=['GET'])
+def getbook():
+    print("DEDEDEDEDEDED")
+    response=getbooks();
     return jsonify({"response":response}),200
 
+@books.route('/add',methods=['POST'])
+def add():
+    print("DEDEDEDEDEDED")
+    response=addbooks("romance")
+    return jsonify({"response":response}),200
 
 @books.route('/borrow',methods=['POST'])
 def borrow():
