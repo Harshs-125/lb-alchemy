@@ -24,7 +24,8 @@ def getbooks():
 def addbooks(genre):
     arr=[]
     for i in range(0,10):
-        b=Books(name="books",author="harsh",available=20,votes=50)
+        b=Books(name=f"books{i}",author="harsh",available=20,votes=50)
+        arr.append(b)
         db.session.add(b)
     db.session.commit()
     return arr

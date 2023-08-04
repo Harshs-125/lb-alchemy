@@ -4,15 +4,13 @@ books=Blueprint('books',__name__)
 
 @books.route('/get',methods=['GET'])
 def getbook():
-    print("DEDEDEDEDEDED")
     response=getbooks();
     return jsonify({"response":response}),200
 
 @books.route('/add',methods=['POST'])
 def add():
-    print("DEDEDEDEDEDED")
     response=addbooks("romance")
-    return jsonify({"response":response}),200
+    return jsonify({"response":"suucessfully added books "}),200
 
 @books.route('/borrow',methods=['POST'])
 def borrow():
